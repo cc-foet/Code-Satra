@@ -109,17 +109,17 @@ void insertAtAnyPos(Node* &head, int position, int data){
 }
 
 int main(){
-    Node* node1 = NULL; 
+    Node* node1 = new Node(1); 
     print(node1);
-    insertAtHead(node1, 1);
+    insertAtHead(node1, 2);
     print(node1);
-    insertAtTail(node1, 2);
+    insertAtTail(node1, 3);
     print(node1);
-    insertInBetween(node1, 2, 2);
+    insertInBetween(node1, 2, 4);
     print(node1);
-    insertAtAnyPos(node1, 0, 3);
+    insertAtAnyPos(node1, 0, 5);
     print(node1);
-    insertAtAnyPos(node1, 5, 4);
+    insertAtAnyPos(node1, 5, 6);
     print(node1);
 }
 
