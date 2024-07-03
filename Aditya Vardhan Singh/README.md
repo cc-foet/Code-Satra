@@ -1,8 +1,8 @@
 # Hey 👋
 
-This is 🧔🏻 Aditya Vardhan Singh from the CSE'26 batch 👨‍💻, University of Lucknow. 🏛️
+This is 🧔🏻 Aditya Vardhan Singh from the 👨‍💻 CSE'26 batch, University of Lucknow. 🏛️
 
-I am excited to finish this 💪 challenge. Wish me well 😉!
+I am excited to finish this challenge 💪. Wish me well 😉!
 
 # Challenges & Lessons 🎯
 
