@@ -16,13 +16,14 @@ int bubbleSort(int arr[], int n) {
 }
 
 void main() {
-    int arr[10] = {17, 38, 47, 21, 66, 98, 5, 82, 79, 20};
-    int count = bubbleSort(arr, 10);
+    int arr[] = {17, 38, 47, 21, 66, 98, 5, 82, 79, 20};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int count = bubbleSort(arr, n);
     
     printf("Sorted array: [");
-    for (int i = 0; i < 10 - 1; i++) {
+    for (int i = 0; i < n - 1; i++) {
         printf("%d, ", arr[i]);
     }
-    printf("%d]\n", arr[9]);
+    printf("%d]\n", arr[n - 1]);
     printf("Number of swaps: %d\n", count);
 }
