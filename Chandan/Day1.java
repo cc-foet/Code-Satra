@@ -1,3 +1,15 @@
+// The problem is to find the nodes which are not part of any cycle in the graph.
+// We can use depth-first search (DFS) to solve this problem.
+// We will keep a visited array and a path array to keep track of the nodes which are part of the current path.
+// If we find a node which is already part of the path, then we return true.
+// If we find a node which is already visited, then we return false.
+// If we find a node which is not part of any cycle, then we return false.
+// We will keep track of the nodes which are part of the current path and the nodes which are visited.
+// If we find a node which is part of the current path, then we return true.
+// If we find a node which is already visited, then we return false.
+
+
+
 import java.util.*;
 import java.io.*;
 
