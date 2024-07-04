@@ -23,7 +23,8 @@ public class Searching {
     }
 
     private static boolean canMake(int days, int[] bloomArray, int flowersInBouquet, int noOfBouquets) {
-        int bouquets = 0, flowers = 0;
+        int bouquets = 0;
+        int flowers = 0;
         for (int day : bloomArray) {
             if (day <= days) {
                 flowers++;

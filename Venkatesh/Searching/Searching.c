@@ -2,7 +2,8 @@
 #include <limits.h>
 
 int canMake(int days, int bloomArray[], int size, int flowersInBouquets, int noOfBouquets) {
-    int bouquets = 0, flowers = 0;
+    int bouquets = 0;
+    int flowers = 0;
     for (int i = 0; i < size; i++) {
         if (bloomArray[i] <= days) {
             flowers++;

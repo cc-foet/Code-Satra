@@ -1,6 +1,7 @@
 def days_to_bouquet(bloom_array, no_of_bouquets, flowers_in_bouquet):
     def can_make(days):
-        bouquets = flowers = 0
+        bouquets = 0
+        flowers = 0
         for day in bloom_array:
             if day <= days:
                 flowers += 1
