@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <limits.h>
 
 using namespace std;
 
@@ -27,7 +28,7 @@ int bouquet(vector<int>& bloomDay, int M, int K) {
     if (adj_flowers > n) return -1;
 
     int min_idx = 0;
-    int min_sum = 0;
+    int min_sum = INT_MAX;
     int sum = 0;
     for (int i = 0; i <= n - adj_flowers; i++) {
         sum = getSum(bloomDay, i, i+adj_flowers);

@@ -1,3 +1,5 @@
+import sys
+
 def getSum(bloomDay, i, n):
     sum = 0
     for idx in range(i, n):
@@ -18,7 +20,7 @@ def bouquet(bloomDay, M, K):
         return -1
 
     min_idx = 0
-    min_sum = 0
+    min_sum = sys.maxsize
     for i in range(len(bloomDay) - adj_flowers):
         sum = getSum(bloomDay, i, i+adj_flowers)
         if sum < min_sum:

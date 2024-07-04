@@ -23,7 +23,7 @@ public class Bouquet {
         if (adj_flowers > n) return -1;
 
         int min_idx = 0;
-        int min_sum = 0;
+        int min_sum = Integer.MAX_VALUE;
         int sum = 0;
         for (int i = 0; i <= n - adj_flowers; i++) {
             sum = getSum(bloomDay, i, i+adj_flowers);
@@ -32,7 +32,6 @@ public class Bouquet {
                 min_idx = i;
             }
         }
-
         return getMax(bloomDay, min_idx, min_idx + adj_flowers);
     }
 
