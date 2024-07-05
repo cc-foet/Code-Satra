@@ -1,3 +1,4 @@
+// Program to check the first and last occurrence of an element in a sorted array. 
 #include <iostream>
 #include <vector>
 using namespace std;
