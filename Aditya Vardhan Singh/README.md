@@ -40,4 +40,17 @@ I am excited to finish this challenge 💪. Wish me well 😉!
     - Fractional Knapsack Problem
     - Huffman Coding
 - ❓ Question
-    - You are an owner of lemonade stand, each lemonade costs $5. Customers are standing in a queue to buy from you and order one at a time (in the order specified by given array bills[]). Each customer will only buy one lemonade and pay with either a $5, $10, or $20 bill. You must provide the correct change to each customer so that the net transaction is Chat the customer pays $5. NOTE: At first, you do not have any bill to provide changes with. You can provide changes from the bills that you get from the previous customers. Given an integer array bills of size N where bills [i] is the bill the ith customer pays, return true if you can provide every customer with the correct change, or false otherwise. Input: N = 5, bills [] = {5, 5, 5, 10, 20) Output: True
+  - You are an owner of lemonade stand, each lemonade costs $5. Customers are standing in a queue to buy from you and order one at a time (in the order specified by given array bills[]). Each customer will only buy one lemonade and pay with either a $5, $10, or $20 bill. You must provide the correct change to each customer so that the net transaction is Chat the customer pays $5. NOTE: At first, you do not have any bill to provide changes with. You can provide changes from the bills that you get from the previous customers. Given an integer array bills of size N where bills [i] is the bill the ith customer pays, return true if you can provide every customer with the correct change, or false otherwise. Input: N = 5, bills [] = {5, 5, 5, 10, 20) Output: True
+    
+### Day 5️⃣
+- 💡 Concept:
+  - Divide and Conquer:
+    - Divide
+    - Conquer
+    - Combine
+  - Key concepts:
+    - Merge sort
+    - Median finding
+    - Min and max finding
+- ❓ Question
+  - Given two sorted arrays arr1 and arr2 of size N and M respectively and an element K. The task is to find the element that would be at the kth position of the final sorted array. Input arr1[] = {2, 3, 6, 7, 9}, arr2[] = {1, 4, 8, 10}, k = 5. Output: 6.
