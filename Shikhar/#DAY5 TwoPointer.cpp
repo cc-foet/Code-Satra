@@ -1,3 +1,5 @@
+// In this I have used the two-pointer approach to solve today's problem.
+
 #include <iostream>
 #include <vector>
 
