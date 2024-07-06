@@ -4,8 +4,7 @@
 using namespace std;
 
 int PeakIndex(vector<int>& nums, int start, int end) {
-       if(nums.size() == 1)
-            return 0;
+       if(nums.size() == 1)  return 0;
         int mid;
         while(start < end) {
             mid = start + (end - start)/2;
