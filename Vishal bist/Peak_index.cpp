@@ -1,3 +1,4 @@
+// Program to find the index of the peak element in an array
 #include<iostream>
 #include<vector>
 using namespace std;
