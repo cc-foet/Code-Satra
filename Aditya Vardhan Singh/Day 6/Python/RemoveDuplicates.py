@@ -145,8 +145,8 @@ class LinkedList:
         print('None')
 
     def remove_duplicate(self):
-        if self.head is None: return None # empty list
-        if self.head.next is None: return self.head # only head present
+        # either empty or only head present
+        if self.head is None or self.head.next is None: return # empty list
 
         ptr = self.head
         while ptr.next:
@@ -165,9 +165,9 @@ for i in arr:
     llist.insertAtEnd(i)
 
 # print the linked list
-print("Node Data")
+print("Original List:")
 llist.printLL()
 
-print("Node Data after remove duplicates")
+print("List after remove duplicates:")
 llist.remove_duplicate()
 llist.printLL()
