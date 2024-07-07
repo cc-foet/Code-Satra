@@ -54,3 +54,15 @@ I am excited to finish this challenge 💪. Wish me well 😉!
     - Min and max finding
 - ❓ Question
   - Given two sorted arrays arr1 and arr2 of size N and M respectively and an element K. The task is to find the element that would be at the kth position of the final sorted array. Input arr1[] = {2, 3, 6, 7, 9}, arr2[] = {1, 4, 8, 10}, k = 5. Output: 6.
+  
+### Day 6️⃣
+- 💡 Concept:
+  - Linked List:
+    - Structure
+    - Advantages
+    - Types
+      - Single
+      - Double
+      - Circular
+- ❓ Question
+  - Given a sorted linked list, write a function that removes all duplicates such that each element only appears once. Input: LinkedList = 1 -> 2 -> 2 -> 4 -> 4 -> 4 -> 5. Output: 1 -> 2 -> 4 -> 5.
