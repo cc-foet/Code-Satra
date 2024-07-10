@@ -89,3 +89,11 @@ I am excited to finish this challenge 💪. Wish me well 😉!
     - Use case: Data retrieval, security, data structure, unique identification.
 - ❓ Question:
   - Given an arr[] containing n integers and a positive integer k, find the length of the longest subarray with the sum of the elements divisible by the given value k. Input: arr[] = {2, 7, 6, 1, 4, 5}, k = 3. Output: 4.
+
+### Day 9️⃣
+- 💡 Concept Outline:
+  - Matrix / 2D Array
+    - Components: size, element, inverse, transpose, rank
+    - Operations: accessing(retrieval), insertion, deletion, traversing, matrix additon, matrix multiplication
+- ❓ Question:
+  - Given an MxN matrix where M is the number of rows and N is the number of columns and an integer K (<M*N), print the Kth element of the matrix in spiral form. For a matrix [[1, 2, 3], [4, 5, 6], [7, 8, 9]] its spiral form will be [1, 2, 3, 6, 9, 8, 7, 4, 5]. Input Matrix = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}}, k = 7. Output = 16.
