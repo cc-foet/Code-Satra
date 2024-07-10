@@ -1,3 +1,9 @@
+/*Problem : Given M*N matrix where M is the number of rows and N is
+ the number of columns and an integer k (M*N), print the kth element 
+ of the matrix in spiral form. For a matrix {{1,2,3},{4,5,6},{7,8,9}} its spiral form will be [1,2,3,6,9,8,7,4,5] 
+Input: Matrix[][]={{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}}  k=7
+Output: 16 */
+
 public class Day9 {
     public static int searchspiral(int m[][],int k){
         int r=m.length,c=m[0].length;
