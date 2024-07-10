@@ -6,7 +6,8 @@ int kthelement(vector<int>&a,vector<int>&b,int m,int n,int k){
     vector<int>arr;
     while(i<m && j<n){
          if(a[i]>b[j]){
-        arr.push_back(b[j++]);
+        arr.push_back(b[j]);
+        b[j++];
 
     }else {
           arr.push_back(a[i++]);
