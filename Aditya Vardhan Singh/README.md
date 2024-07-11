@@ -1,6 +1,6 @@
 # Hey 👋
 
-This is 🧔🏻 Aditya Vardhan Singh from the 👨‍💻 CSE'26 batch, University of Lucknow. 🏛️
+This is Aditya Vardhan Singh from the CSE'26 batch, University of Lucknow. 🏛️
 
 I am excited to finish this challenge 💪. Wish me well 😉!
 
@@ -92,8 +92,18 @@ I am excited to finish this challenge 💪. Wish me well 😉!
 
 ### Day 9️⃣
 - 💡 Concept Outline:
-  - Matrix / 2D Array
+  - Matrix / 2D Array:
     - Components: size, element, inverse, transpose, rank
     - Operations: accessing(retrieval), insertion, deletion, traversing, matrix additon, matrix multiplication
 - ❓ Question:
   - Given an MxN matrix where M is the number of rows and N is the number of columns and an integer K (<M*N), print the Kth element of the matrix in spiral form. For a matrix [[1, 2, 3], [4, 5, 6], [7, 8, 9]] its spiral form will be [1, 2, 3, 6, 9, 8, 7, 4, 5]. Input Matrix = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}}, k = 7. Output = 16.
+
+### Day 🔟
+- 💡 Concept Outline:
+  - Binary Tree:
+    - Operations: traversal (in-order, pre-order, post-order, level-order), insertion, deletion, searching.
+    - Types: full binary tree, complete binary tree, perfect binary tree, binary search tree, balanced binary tree.
+    - Operations: accessing(retrieval), insertion, deletion, traversing, matrix additon, matrix multiplication.
+  - Use case: data storage, hierarchal data, expression tree, routing algorithm.
+- ❓ Question:
+  - Given an array that represents inorder traversal, find the number of possibly binary trees. Input: arr=[4, 5, 7]. Output: 5
