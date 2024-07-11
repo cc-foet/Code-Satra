@@ -1,3 +1,5 @@
+// Problem: Given an array thet represents inorder traversal, find the number of possble binary trees.
+
 import java.math.BigInteger;
 
 public class Day10 {
