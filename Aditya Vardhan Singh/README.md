@@ -6,7 +6,7 @@ I am excited to finish this challenge 💪. Wish me well 😉!
 
 # Challenges & Lessons 🎯
 
-### Day 1️⃣
+### Day 0️⃣1️⃣
 - 💡 Concept Outline:
   - Introduction to arrays
   - Why to use arrays?
@@ -17,7 +17,7 @@ I am excited to finish this challenge 💪. Wish me well 😉!
 - ❓ Question:
   - Given an array of integers, write a function that sorts the array using the bubble sort algorithm and count the number of swaps performed during the sorting process. The function should return the sorted array and the total number of swaps.
 
-### Day 2️⃣
+### Day 0️⃣2️⃣
 - 💡 Concept Outline:
   - Advanced sorting algorithms:
     - Merge sort
@@ -25,7 +25,7 @@ I am excited to finish this challenge 💪. Wish me well 😉!
 - ❓ Question:
   - Given an array nums of length n+m where first n elements are sorted. Your task is to sort the last m elements in-place so that the whole array becomes sorted.
 
-### Day 3️⃣
+### Day 0️⃣3️⃣
 - 💡 Concept Outline:
   - Searching algorithms:
     - Linear search
@@ -33,7 +33,7 @@ I am excited to finish this challenge 💪. Wish me well 😉!
 - ❓ Question:
   - To make one bouquet we need K adjacent flowers from the garden. Here the garden consists of N different flowers, the ith flower will bloom in the bloomDay[i]. Each flower can be used inside only one bouquets. We have to find the minimum number of days need to wait to make M bouquets from the garden. If we cannot make M bouquets, then < return -1. Input: M = 2, K = 3 bloomDay = [5, 5, 5, 5, 10, 5, 5], Output: 10
 
-### Day 4️⃣
+### Day 0️⃣4️⃣
 - 💡 Concept Outline:
   - Greedy Algorithms:
     - Activity Selection Problem
@@ -42,7 +42,7 @@ I am excited to finish this challenge 💪. Wish me well 😉!
 - ❓ Question:
   - You are an owner of lemonade stand, each lemonade costs $5. Customers are standing in a queue to buy from you and order one at a time (in the order specified by given array bills[]). Each customer will only buy one lemonade and pay with either a $5, $10, or $20 bill. You must provide the correct change to each customer so that the net transaction is Chat the customer pays $5. NOTE: At first, you do not have any bill to provide changes with. You can provide changes from the bills that you get from the previous customers. Given an integer array bills of size N where bills [i] is the bill the ith customer pays, return true if you can provide every customer with the correct change, or false otherwise. Input: N = 5, bills [] = {5, 5, 5, 10, 20) Output: True
 
-### Day 5️⃣
+### Day 0️⃣5️⃣
 - 💡 Concept Outline:
   - Divide and Conquer:
     - Divide
@@ -55,7 +55,7 @@ I am excited to finish this challenge 💪. Wish me well 😉!
 - ❓ Question:
   - Given two sorted arrays arr1 and arr2 of size N and M respectively and an element K. The task is to find the element that would be at the kth position of the final sorted array. Input arr1[] = {2, 3, 6, 7, 9}, arr2[] = {1, 4, 8, 10}, k = 5. Output: 6.
 
-### Day 6️⃣
+### Day 0️⃣6️⃣
 - 💡 Concept Outline:
   - Linked List:
     - Structure
@@ -67,7 +67,7 @@ I am excited to finish this challenge 💪. Wish me well 😉!
 - ❓ Question:
   - Given a sorted linked list, write a function that removes all duplicates such that each element only appears once. Input: LinkedList = 1 -> 2 -> 2 -> 4 -> 4 -> 4 -> 5. Output: 1 -> 2 -> 4 -> 5.
 
-### Day 7️⃣
+### Day 0️⃣7️⃣
 - 💡 Concept Outline:
   - Stacks:
     - Key operations: push, pop, peek/top, is_empty
@@ -78,7 +78,7 @@ I am excited to finish this challenge 💪. Wish me well 😉!
 - ❓ Question:
   - Determine if a given string is a palindrome (reads the same forwards and backwards). Use both a stack and a queue to check for palindromes. Input: CodeSatra. Output: False
 
-### Day 8️⃣
+### Day 0️⃣8️⃣
 - 💡 Concept Outline:
   - Hashing:
     - Hash function
@@ -90,7 +90,7 @@ I am excited to finish this challenge 💪. Wish me well 😉!
 - ❓ Question:
   - Given an arr[] containing n integers and a positive integer k, find the length of the longest subarray with the sum of the elements divisible by the given value k. Input: arr[] = {2, 7, 6, 1, 4, 5}, k = 3. Output: 4.
 
-### Day 9️⃣
+### Day 0️⃣9️⃣
 - 💡 Concept Outline:
   - Matrix / 2D Array:
     - Components: size, element, inverse, transpose, rank
@@ -98,12 +98,20 @@ I am excited to finish this challenge 💪. Wish me well 😉!
 - ❓ Question:
   - Given an MxN matrix where M is the number of rows and N is the number of columns and an integer K (<M*N), print the Kth element of the matrix in spiral form. For a matrix [[1, 2, 3], [4, 5, 6], [7, 8, 9]] its spiral form will be [1, 2, 3, 6, 9, 8, 7, 4, 5]. Input Matrix = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}}, k = 7. Output = 16.
 
-### Day 🔟
+### Day 1️⃣0️⃣
 - 💡 Concept Outline:
   - Binary Tree:
     - Operations: traversal (in-order, pre-order, post-order, level-order), insertion, deletion, searching.
     - Types: full binary tree, complete binary tree, perfect binary tree, binary search tree, balanced binary tree.
-    - Operations: accessing(retrieval), insertion, deletion, traversing, matrix additon, matrix multiplication.
-  - Use case: data storage, hierarchal data, expression tree, routing algorithm.
+    - Use case: data storage, hierarchal data, expression tree, routing algorithm.
 - ❓ Question:
   - Given an array that represents inorder traversal, find the number of possibly binary trees. Input: arr=[4, 5, 7]. Output: 5
+
+### Day 1️⃣1️⃣
+- 💡 Concept Outline:
+  - Binary Search Tree:
+    - Operations: traversal (in-order, pre-order, post-order, level-order), insertion, deletion, searching.
+    - Types: balanced binary search tree, unbalanced binary search tree.
+    - Use case: data storage, database, sorting, hierarchicalal data structure.
+- ❓ Question:
+  - Given a sorted linked list, convert it into a binary search tree and display its preorder traversal (root-left-right). Input: Linkedlist = 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> null. Output: {4, 2, 1, 3, 6, 5, 7}.
