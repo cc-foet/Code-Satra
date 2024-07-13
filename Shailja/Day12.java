@@ -1,8 +1,9 @@
-
-import java.util.*;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.PriorityQueue;
 
 public class Day12 {
-    static class Element {
+ static class Element {
         int value;
         int arrayIndex;
         int elementIndex;
@@ -56,6 +57,5 @@ public class Day12 {
         int[] result = mergeKSortedArrays(arrays);
         System.out.println(Arrays.toString(result));
     }
+    
 }
-
-
