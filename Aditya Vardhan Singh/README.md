@@ -6,7 +6,7 @@ Languages used: `C/C++, Python, Java`
 
 Primary language used for this file: `Python`
 
-For solution in all languages used, go to directory: `/Challenge Solutions` and `/Practice Problem Solutions`
+For solution in all languages used, go to directory: `/Code Satra Problems` and `/Other Problems`
 
 # Table of Contents
 
