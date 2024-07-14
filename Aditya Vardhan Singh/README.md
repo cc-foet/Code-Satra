@@ -12,7 +12,7 @@ For solution in all languages used, go to directory: `/Code Satra Problems` and 
 
 1. [Problems / Questions](#problems--questions)
     - [Code Satra Problems](#code-satra-problems)
-    - [Other Problems (leetcode)](#other-problems-leetcode)
+    - [Other Problems (leetcode, gfg)](#other-problems-leetcode-gfg)
 2. [Lessons](#lessons)
 
 # Problems / Questions
@@ -651,7 +651,7 @@ s = "aaabbc"
 print(rearrange_chars(s))
 ```
 
-## Other problems (leetcode)
+## Other problems (leetcode, gfg)
 
 ### Day 7
 
