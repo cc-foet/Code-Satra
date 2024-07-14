@@ -9,7 +9,7 @@ public class StringRearrangement {
             frequencyMap.put(c, frequencyMap.getOrDefault(c, 0) + 1);
         }
 
-        // Cretion of Priority Queue
+        // Creation of Priority Queue
         PriorityQueue<Character> maxHeap = new PriorityQueue<>((a, b) -> frequencyMap.get(b) - frequencyMap.get(a));
         maxHeap.addAll(frequencyMap.keySet());
 
