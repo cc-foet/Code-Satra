@@ -12,7 +12,7 @@ For solution in all languages used, go to directory: `/Code Satra Problems` and 
 
 1. [Problems / Questions](#problems--questions)
     - [Code Satra Problems](#code-satra-problems)
-    - [Other Problems (leetcode)](#other-problems-leetcode)
+    - [Other Problems (leetcode, gfg)](#other-problems-leetcode-gfg)
 2. [Lessons](#lessons)
 
 # Problems / Questions
@@ -613,7 +613,45 @@ output = merge_array(arr)
 print(output)
 ```
 
-## Other problems (leetcode)
+### Day 13
+
+Given a string of lowercase letters, rearrange the character so that no adjacent character are the same. If not possible then return an empty string. Input: String = "aaabbc". Output: "abaca".
+
+```Python
+import heapq
+from collections import Counter
+
+def rearrange_chars(s):
+    # Count frequency of each character in the string
+    chars_freq = Counter(s)
+
+    # Create a max_heap with neg freq
+    heap = [(-freq, char) for char, freq in chars_freq.items()]
+    heapq.heapify(heap)
+
+    # To store previous frequency and character
+    prev_count, prev_char = 0, ''
+    ans_arr = []
+
+    while heap:
+        count, char = heapq.heappop(heap)
+        ans_arr.append(char)
+
+        if prev_count < 0: # character left to be used
+            heapq.heappush(heap, (prev_count, prev_char))
+        
+        prev_count, prev_char = count + 1, char
+    
+    ans = ''.join(ans_arr)
+
+    return ans if len(ans_arr) == len(s) else ''
+
+
+s = "aaabbc"
+print(rearrange_chars(s))
+```
+
+## Other problems (leetcode, gfg)
 
 ### Day 7
 
@@ -640,7 +678,7 @@ class Solution:
 
 ### Day 12 
 
-[328. Odd Even Linked List](https://leetcode.com/problems/odd-even-linked-list/) - Given the head of a singly linked list, group all the nodes with odd indices together followed by the nodes with even indices, and return the reordered list. The first node is considered odd, and the second node is even, and so on. Note that the relative order inside both the even and odd groups should remain as it was in the input. You must solve the problem in O(1) extra space complexity and O(n) time complexity.
+[328 Odd Even Linked List](https://leetcode.com/problems/odd-even-linked-list/) - Given the head of a singly linked list, group all the nodes with odd indices together followed by the nodes with even indices, and return the reordered list. The first node is considered odd, and the second node is even, and so on. Note that the relative order inside both the even and odd groups should remain as it was in the input. You must solve the problem in O(1) extra space complexity and O(n) time complexity.
 
 ```Python
 # Definition for singly-linked list.
@@ -676,7 +714,7 @@ class Solution:
         return oddHead
 ```
 
-[19. Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) - Given the head of a linked list, remove the nth node from the end of the list and return its head.
+[19 Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) - Given the head of a linked list, remove the nth node from the end of the list and return its head.
 
 ```Python
 # Definition for singly-linked list.
@@ -707,7 +745,7 @@ class Solution:
         return head
 ```
 
-[2095. Delete the Middle Node of a Linked List](https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/) - You are given the head of a linked list. Delete the middle node, and return the head of the modified linked list. The middle node of a linked list of size n is the ⌊n / 2⌋th node from the start using 0-based indexing, where ⌊x⌋ denotes the largest integer less than or equal to x. For n = 1, 2, 3, 4, and 5, the middle nodes are 0, 1, 1, 2, and 2, respectively.
+[2095 Delete the Middle Node of a Linked List](https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/) - You are given the head of a linked list. Delete the middle node, and return the head of the modified linked list. The middle node of a linked list of size n is the ⌊n / 2⌋th node from the start using 0-based indexing, where ⌊x⌋ denotes the largest integer less than or equal to x. For n = 1, 2, 3, 4, and 5, the middle nodes are 0, 1, 1, 2, and 2, respectively.
 
 ```Python
 # Definition for singly-linked list.
@@ -734,6 +772,138 @@ class Solution:
         slow.next = slow.next.next
         
         return head
+```
+
+### Day 13
+
+[148 Sort List](https://leetcode.com/problems/sort-list/) - Given the head of a linked list, return the list after sorting it in ascending order.
+
+```Python
+class Solution:
+    def merge_list(self, left, right):
+        dummy_head = ListNode(-1)
+        temp = dummy_head
+
+        while left and right:
+            if left.val < right.val:
+                temp.next = left
+                left = left.next
+            else:
+                temp.next = right
+                right = right.next
+            temp = temp.next
+        
+        if left:
+            temp.next = left
+        else:
+            temp.next = right
+
+        return dummy_head.next
+
+    def find_middle_of_list(self, head):
+        if head is None or head.next is None:
+            return head
+        
+        slow = head
+        fast = head.next
+
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        
+        return slow
+
+    def sortList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if head is None or head.next is None:
+            return head
+        
+        mid = Solution.find_middle_of_list(self, head)
+        left = head
+        right = mid.next
+        mid.next = None
+        left = Solution.sortList(self, left)
+        right = Solution.sortList(self, right)
+        return Solution.merge_list(self, left, right)
+```
+
+[Sort a linked list of 0s, 1s and 2s](https://www.geeksforgeeks.org/problems/given-a-linked-list-of-0s-1s-and-2s-sort-it/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=given-a-linked-list-of-0s-1s-and-2s-sort-it) - Given a linked list of N nodes where nodes can contain values 0s, 1s, and 2s only. The task is to segregate 0s, 1s, and 2s linked list such that all zeros segregate to head side, 2s at the end of the linked list, and 1s in the mid of 0s and 2s.
+
+```Python
+class Solution:
+    #Function to sort a linked list of 0s, 1s and 2s.
+    def segregate(self, head):
+        #code here
+        map = {x:0 for x in range(3)}
+        temp = head
+        while temp:
+            map[temp.data] += 1
+            temp = temp.next
+        temp = head
+        for value in range(3):
+            while map[value] > 0:
+                temp.data = value
+                map[value] -= 1
+                temp = temp.next
+        return head
+```
+
+[160 Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/) - Given the heads of two singly linked-lists headA and headB, return the node at which the two lists intersect. If the two linked lists have no intersection at all, return null.
+
+```Python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
+        st = set()
+        temp = headA
+        while temp:
+            st.add(temp)
+            temp = temp.next
+        temp = headB
+        while temp:
+            if temp in st:
+                return temp
+            temp = temp.next
+        return None
+```
+
+[Add 1 to a Linked List Number](https://www.geeksforgeeks.org/problems/add-1-to-a-number-represented-as-linked-list/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=add-1-to-a-number-represented-as-linked-list) - A number is represented in the Linked List such that each digit corresponds to a node in the linked list. You need to add 1 to it. Returns the head of the modified linked list. Note: The head represents the leftmost digit of the number.
+
+```Python
+class Solution:
+    def reverseList(self,head):
+        if head is None or head.next is None:
+            return head
+        ptr = None
+        
+        while head:
+            temp = head.next
+            head.next = ptr
+            ptr = head
+            head = temp
+        
+        return ptr
+    def addOne(self,head):
+        #Returns new head of linked List.
+        head = Solution.reverseList(self,head)
+        temp = head
+        carry = True
+        while carry and temp:
+            if temp.next is None and temp.data == 9:
+                temp.data = 0
+                temp.next = Node(1)
+                return Solution.reverseList(self,head)
+            elif temp.data == 9:
+                temp.data = 0
+            else:
+                temp.data += 1
+                carry = False
+            temp = temp.next
+        return Solution.reverseList(self,head)
 ```
 
 # Lessons
