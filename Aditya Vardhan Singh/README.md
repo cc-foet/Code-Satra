@@ -655,6 +655,136 @@ s = "aaabbc"
 print(rearrange_chars(s))
 ```
 
+### Day 14
+
+Given a string, compress it using huffman coding and display its binary encoded representation and also decode and print the decoded string.
+
+```python
+import heapq
+from collections import Counter, namedtuple
+
+class Node:
+    def __init__(self, char, freq, left=None, right=None):
+        self.char = char
+        self.freq = freq
+        self.left = left
+        self.right = right
+
+    def __lt__(self, other):
+        return self.freq < other.freq
+
+class HuffmanCoding:
+    def __init__(self, data):
+        self.data = data
+        self.frequency = Counter(data)
+        self.huffman_tree = self.build_huffman_tree()
+        self.codes = self.generate_codes()
+
+    def build_huffman_tree(self):
+        heap = [Node(char, freq) for char, freq in self.frequency.items()]
+        heapq.heapify(heap)
+        
+        while len(heap) > 1:
+            left = heapq.heappop(heap)
+            right = heapq.heappop(heap)
+            merged = Node(None, left.freq + right.freq, left, right)
+            heapq.heappush(heap, merged)
+        
+        return heap[0]
+
+    def generate_codes(self):
+        codes = {}
+        
+        def generate_codes_helper(node, current_code):
+            if node is None:
+                return
+            
+            if node.char is not None:
+                codes[node.char] = current_code
+                return
+            
+            generate_codes_helper(node.left, current_code + "0")
+            generate_codes_helper(node.right, current_code + "1")
+        
+        generate_codes_helper(self.huffman_tree, "")
+        return codes
+
+    def encode(self):
+        encoded_data = ''.join(self.codes[char] for char in self.data)
+        return encoded_data
+
+    def decode(self, encoded_data):
+        decoded_data = []
+        node = self.huffman_tree
+        for bit in encoded_data:
+            node = node.left if bit == '0' else node.right
+            
+            if node.char is not None:
+                decoded_data.append(node.char)
+                node = self.huffman_tree
+        
+        return ''.join(decoded_data)
+
+data = "code satra"
+huffman_coding = HuffmanCoding(data)
+encoded_data = huffman_coding.encode()
+decoded_data = huffman_coding.decode(encoded_data)
+
+print("Input string: ", data)
+print("Encoded: ", encoded_data)
+print("Decoded: ", decoded_data)
+```
+
+### Day 15
+
+Given a directed graph, write a function that detects if there is a cycle in the graph. If the graph is cyclic, return the cycle, else return false. Input: Vertices = ['A', 'B', 'C', 'D'], Edges = [('A', 'B'), ('B', 'C'), ('C', 'A'), ('C', 'D')]. Output: ['A', 'B', 'C', 'A'].
+
+```Python
+def find_cycle(vertices, edges):
+    from collections import defaultdict
+
+    graph = defaultdict(list)
+    for u, v in edges:
+        graph[u].append(v)
+
+    visited = {v: False for v in vertices}
+    rec_stack = {v: False for v in vertices}
+
+    def dfs(v, path):
+        visited[v] = True
+        rec_stack[v] = True
+        path.append(v)
+
+        for neighbor in graph[v]:
+            if not visited[neighbor]:
+                result = dfs(neighbor, path)
+                if result:
+                    return result
+            elif rec_stack[neighbor]:
+                # Cycle detected, extract the cycle
+                cycle_start_index = path.index(neighbor)
+                return path[cycle_start_index:] + [neighbor]
+
+        rec_stack[v] = False
+        path.pop()
+        return None
+
+    for vertex in vertices:
+        if not visited[vertex]:
+            path = []
+            result = dfs(vertex, path)
+            if result:
+                return result
+
+    return False
+
+vertices = ['A', 'B', 'C', 'D']
+edges = [('A', 'B'), ('B', 'C'), ('C', 'A'), ('C', 'D')]
+
+cycle = find_cycle(vertices, edges)
+print(cycle)
+```
+
 ## Other problems (leetcode, gfg)
 
 ### Day 7
@@ -907,6 +1037,265 @@ class Solution:
                 temp.data += 1
                 carry = False
         return Solution.reverseList(self,head)
+```
+
+### Day 14
+
+[2 Add Two Numbers](https://leetcode.com/problems/add-two-numbers/) - You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list. You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+
+```Python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+        l3 = ListNode()
+        t1, t2, t3 = l1, l2, l3
+        carry = 0
+
+        while t1 and t2:
+            sum = t1.val + t2.val + carry
+            if carry:
+                carry = 0 
+            if sum > 9:
+                carry = 1
+                sum -= 10
+            
+            t3.val = sum
+            
+            t1 = t1.next
+            t2 = t2.next
+            t3.next = ListNode()
+            t3 = t3.next
+        
+        while t1:
+            sum = t1.val + carry
+            if carry:
+                carry = 0
+            if sum > 9:
+                carry = 1
+                sum -= 10
+            
+            t3.val = sum
+            t1 = t1.next
+            t3.next = ListNode()
+            t3 = t3.next
+        
+        while t2:
+            sum = t2.val + carry
+            if carry:
+                carry = 0
+            if sum > 9:
+                carry = 1
+                sum -= 10
+            
+            t3.val = sum
+            t2 = t2.next
+            t3.next = ListNode()
+            t3 = t3.next
+        
+        if carry:
+            t3.val = 1
+            carry = 0
+        
+        t3 = l3
+        while t3.next.next:
+            t3 = t3.next
+        if t3.next.val == 0:
+            t3.next = None
+        
+        return l3
+```
+
+### Day 15
+
+[25 Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/) - Given the head of a linked list, reverse the nodes of the list k at a time, and return the modified list. k is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of k then left-out nodes, in the end, should remain as it is. You may not alter the values in the list's nodes, only nodes themselves may be changed.
+
+```Python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def sizeof(self, head):
+        ''' Return size of list '''
+        size = 0
+        temp = head
+        while temp:
+            size += 1
+            temp = temp.next
+        return size
+    
+    def reverseList(self, head):
+        if head is None or head.next is None:
+            return head
+        
+        prev = None
+        while head:
+            temp = head.next
+            head.next = prev
+            prev = head
+            head = temp
+        
+        return prev
+
+    def reverseKGroup(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
+        # edge case
+        if k == 1:
+            return head
+        
+        # set head of our final ans
+        count = k - 1
+        permanent_head = head
+        while count:
+            permanent_head = permanent_head.next
+            count -= 1
+        
+        # rev k nodes n times
+        n = Solution.sizeof(self, head) // k        # 2
+        prev_temp_back = None
+        while n:
+            # set pointers at their respective positions
+            if prev_temp_back is None:
+                temp_front = head
+            else:
+                temp_front = prev_temp_back.next
+            
+            temp_back = temp_front
+            count = k - 1
+            while count:
+                temp_back = temp_back.next
+                count -= 1
+
+            # detach list from tf to tb
+            if prev_temp_back: # don't do for first case
+                prev_temp_back.next = None
+            next_temp_front = temp_back.next
+            temp_back.next = None
+            
+            # rev list from tf to tb
+            temp_back = temp_front
+            temp_front = Solution.reverseList(self, temp_front)
+
+            # attach reversed list
+            if prev_temp_back: # don't do for first case
+                prev_temp_back.next = temp_front
+            temp_back.next = next_temp_front
+
+            prev_temp_back = temp_back
+            n -= 1
+        
+        return permanent_head
+```
+
+[Delete all occurrences of a given key in a doubly linked list](https://www.geeksforgeeks.org/problems/delete-all-occurrences-of-a-given-key-in-a-doubly-linked-list/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=delete-all-occurrences-of-a-given-key-in-a-doubly-linked-list) - You are given the head_ref of a doubly Linked List and a Key. Your task is to delete all occurrences of the given key if it is present and return the new DLL.
+
+```Python
+#User function Template for python3
+'''
+# Node Class
+    class Node:
+        def __init__(self, data):   # data -> value stored in node
+            self.data = data
+            self.next = None
+            self.prev = None
+'''
+class Solution:
+    #Function to delete all the occurances of a key from the linked list.
+    def deleteAllOccurOfX(self, head, x):
+        # code here
+        while head.data == x:
+            head = head.next
+        temp = head
+        while temp.next:
+            if temp.next.data == key:
+                temp.next = temp.next.next
+            else:
+                temp = temp.next
+        return head
+        # edit the linked list
+```
+
+[Find pairs with given sum in doubly linked list](https://www.geeksforgeeks.org/problems/find-pairs-with-given-sum-in-doubly-linked-list/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=find-pairs-with-given-sum-in-doubly-linked-list) - Given a sorted doubly linked list of positive distinct elements, the task is to find pairs in a doubly-linked list whose sum is equal to given value target.
+
+```Python
+from typing import Optional
+
+
+from typing import List
+
+"""
+
+Definition for singly Link List Node
+class Node:
+    def __init__(self,x):
+        self.data=x
+        self.next=None
+        self.prev=None
+
+You can also use the following for printing the link list.
+displayList(node)
+"""
+
+class Solution:
+    def findPairsWithGivenSum(self, target : int, head : Optional['Node']) -> List[List[int]]:
+        # code here
+        ans = []
+        if head.next is None:
+            return ans
+        
+        p1 = head
+        p2 = head
+        
+        while p2.next:
+            p2 = p2.next
+        
+        while p1 is not p2 and p2.next is not p1:
+            d1, d2 = p1.data, p2.data
+            
+            if (d1 + d2) == target:
+                ans.append([d1, d2])
+                p1 = p1.next
+                p2 = p2.prev
+            elif (d1 + d2) < target:
+                p1 = p1.next
+            else:
+                p2 = p2.prev
+        
+        return ans
+```
+
+[Remove duplicates from a sorted doubly linked list](https://www.geeksforgeeks.org/problems/remove-duplicates-from-a-sorted-doubly-linked-list/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=remove-duplicates-from-a-sorted-doubly-linked-list) - Given a doubly linked list of n nodes sorted by values, the task is to remove duplicate nodes present in the linked list.
+
+```Python
+#Back-end complete function Template for Python 3
+
+'''
+# Node Class
+        class Node:
+            def __init__(self, data):   # data -> value stored in node
+                self.data = data
+                self.next = None
+                self.prev = None
+'''
+class Solution:
+    #Function to remove duplicates from unsorted linked list.
+    def removeDuplicates(self, head):
+        # code here
+        # return head after editing list
+        temp = head
+        
+        while temp.next:
+            if temp.data == temp.next.data:
+                temp.next = temp.next.next
+            else:
+                temp = temp.next
+        
+        return head
+            
 ```
 
 # Lessons
