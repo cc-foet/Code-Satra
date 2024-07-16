@@ -2,11 +2,15 @@
 
 Author: [Aditya Vardhan Singh](https://github.com/aditya-vardhan-singh)
 
-Languages used: `C/C++, Python, Java`
+Topic: Code Satra is a 2-3 week challange. Provided with a challenge problem everyday on different data structure topics, one needs to solve and push the solution in their desired language to Code Satra repo. Intended to introduce and enhance foundational skills in data structures, algorithms and version control systems.
+
+Languages used by me: `C/C++, Python, Java`
 
 Primary language used for this file: `Python`
 
 For solution in all languages used, go to directory: `/Code Satra Problems` and `/Other Problems`
+
+Note: I have tried to solve the problems in all different languages I am familiar with (to be up to date with different libraries in the languages I know), however, some solutions in some languages might be missing.
 
 # Table of Contents
 
@@ -902,7 +906,6 @@ class Solution:
             else:
                 temp.data += 1
                 carry = False
-            temp = temp.next
         return Solution.reverseList(self,head)
 ```
 
@@ -912,7 +915,48 @@ class Solution:
 
 Introduction to arrays. Why to use arrays?
 
-Sorting algos:
-- Bubble sort
-- Selection sort
-- Insertion sort
+Sorting algorithms:
+   - Bubble sort
+   - Selection sort
+   - Insertion sort
+
+### Day 2
+
+Advanced sorting algorithms:
+   - Merge sort
+   - Quick sort
+
+### Day 3
+
+Searching algorithms:
+   - Linear search
+   - Binary search
+
+### Day 4
+
+Greedy Algorithms:
+   - Activity Selection Problem
+   - Fractional Knapsack Problem
+   - Huffman Coding
+
+### Day 5
+
+Divide and Conquer:
+   - Divide
+   - Conquer
+   - Combine
+
+Key concepts:
+   - Merge sort
+   - Median finding
+   - Min and max finding
+
+### Day 6
+
+Linked List:
+   - Structure
+   - Advantages
+   - Types:
+      - Single
+      - Double
+      - Circular
