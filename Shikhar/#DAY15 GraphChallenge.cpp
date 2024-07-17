@@ -1,3 +1,5 @@
+// Solved the challenge of Day 15.
+
 #include <iostream>
 #include <vector>
 #include <unordered_map>
