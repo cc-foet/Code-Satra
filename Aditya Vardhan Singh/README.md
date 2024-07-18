@@ -1,23 +1,29 @@
-# Introduction
+# Code Satra Challenge
 
-Author: [Aditya Vardhan Singh](https://github.com/aditya-vardhan-singh)
+**Author**: [Aditya Vardhan Singh](https://github.com/aditya-vardhan-singh)
 
-Languages used: `C/C++, Python, Java`
+**Topic**: Code Satra is a 2-3 week challenge where you solve daily problems on different data structure topics, enhancing skills in data structures, algorithms, and version control systems.
+
+**Languages Used**: `C/C++, Python, Java` | **Primary Language**: `Python`, for solutions in other languages, go to directories: `/Code Satra Problems` and `/Other Problems`
 
 # Table of Contents
 
-1. [Problems / Questions](#problems--questions)
-    - [Code Satra Problems](#code-satra-problems)
-    - [Other Problems (leetcode, gfg)](#other-problems-leetcode-gfg)
-2. [Lessons](#lessons)
+1. [Code Satra Problems](#code-satra-problems)
+2. [Other Problems (LeetCode, GFG)](#other-problems-leetcode-gfg)
+3. [Lessons](#lessons)
 
-# Problems / Questions
+# Problems
 
 ## Code Satra Problems
 
-### Day 1
+<details>
+<summary>Day 1: Bubble Sort with Swap Count</summary>
+
+### Problem Statement:
 
 Given an array of integers, write a function that sorts the array using the bubble sort algorithm and count the number of swaps performed during the sorting process. The function should return the sorted array and the total number of swaps.
+
+### Solution Code:
 
 ```Python
 def bubble_sort_and_count(arr):
@@ -41,9 +47,16 @@ print("Sorted array: ", arr)
 print("Number of swaps: ", swaps)
 ```
 
-### Day 2
+</details>
+
+<details>
+<summary>Day 2: In-Place Sorting for Partially Sorted Array</summary>
+
+### Problem Statement:
 
 Given an array nums of length n+m where first n elements are sorted. Your task is to sort the last m elements in-place so that the whole array becomes sorted.
+
+### Solution Code:
 
 ```Python
 def merge(arr, low, mid, high):
@@ -80,9 +93,16 @@ merge_sort(arr, 0, len(arr)-1)
 print(arr)
 ```
 
-### Day 3
+</details>
+
+<details>
+<summary>Day 3: Minimum Days to Make M Bouquets</summary>
+
+### Problem Statement:
 
 To make one bouquet we need K adjacent flowers from the garden. Here the garden consists of N different flowers, the ith flower will bloom in the bloomDay[i]. Each flower can be used inside only one bouquets. We have to find the minimum number of days need to wait to make M bouquets from the garden. If we cannot make M bouquets, then < return -1. Input: M = 2, K = 3 bloomDay = [5, 5, 5, 5, 10, 5, 5], Output: 10
+
+### Solution Code:
 
 ```Python
 import sys
@@ -123,9 +143,16 @@ bloomDay = [5, 5, 5, 5, 10, 5, 5]
 print(bouquet(bloomDay, M, K))
 ```
 
-### Day 4
+</details>
+
+<details>
+<summary>Day 4: Lemonade Stand Change Problem</summary>
+
+### Problem Statement:
 
 You are an owner of lemonade stand, each lemonade costs $5. Customers are standing in a queue to buy from you and order one at a time (in the order specified by given array bills[]). Each customer will only buy one lemonade and pay with either a $5, $10, or $20 bill. You must provide the correct change to each customer so that the net transaction is Chat the customer pays $5. NOTE: At first, you do not have any bill to provide changes with. You can provide changes from the bills that you get from the previous customers. Given an integer array bills of size N where bills [i] is the bill the ith customer pays, return true if you can provide every customer with the correct change, or false otherwise. Input: N = 5, bills [] = {5, 5, 5, 10, 20) Output: True
+
+### Solution Code:
 
 ```Python
 def check_change(bills):
@@ -160,9 +187,16 @@ bills = [5, 5, 5, 10, 20, 10, 10]
 print( check_change(bills) )
 ```
 
-### Day 5
+</details>
+
+<details>
+<summary>Day 5: Finding the Kth element in two sorted arrays</summary>
+
+### Problem Statement:
 
 Given two sorted arrays arr1 and arr2 of size N and M respectively and an element K. The task is to find the element that would be at the kth position of the final sorted array. Input arr1[] = {2, 3, 6, 7, 9}, arr2[] = {1, 4, 8, 10}, k = 5. Output: 6.
+
+### Solution Code:
 
 ```Python
 def find_position(arr1, arr2, k):
@@ -197,9 +231,16 @@ k = 5
 print( find_position(arr1, arr2, k) )
 ```
 
-### Day 6
+</details>
+
+<details>
+<summary>Day 6: Removing duplicates from a sorted linked list</summary>
+
+### Problem Statement:
 
 Given a sorted linked list, write a function that removes all duplicates such that each element only appears once. Input: LinkedList = 1 -> 2 -> 2 -> 4 -> 4 -> 4 -> 5. Output: 1 -> 2 -> 4 -> 5.
+
+### Solution Code:
 
 ```Python
 # Create a Node class to create a node
@@ -377,9 +418,16 @@ llist.remove_duplicate()
 llist.printLL()
 ```
 
-### Day 7
+</details>
+
+<details>
+<summary>Day 7: Checking palindrome using stack and queue</summary>
+
+### Problem Statement:
 
 Determine if a given string is a palindrome (reads the same forwards and backwards). Use both a stack and a queue to check for palindromes. Input: CodeSatra. Output: False
+
+### Solution Code:
 
 ```Python
 def is_palindrome_string(input_string):
@@ -398,9 +446,16 @@ input_string = 'CodeSatra'
 print(is_palindrome_string(input_string))
 ```
 
-### Day 8
+</details>
+
+<details>
+<summary>Day 8: Finding the length of the longest subarray with sum divisible by k</summary>
+
+### Problem Statement:
 
 Given an arr[] containing n integers and a positive integer k, find the length of the longest subarray with the sum of the elements divisible by the given value k. Input: arr[] = {2, 7, 6, 1, 4, 5}, k = 3. Output: 4.
+
+### Solution Code:
 
 ```Python
 def sum_factor(arr, k):
@@ -426,9 +481,16 @@ k = 3
 print(sum_factor(arr, k))
 ```
 
-### Day 9
+</details>
 
-Given an MxN matrix where M is the number of rows and N is the number of columns and an integer K (<M*N), print the Kth element of the matrix in spiral form. For a matrix [[1, 2, 3], [4, 5, 6], [7, 8, 9]] its spiral form will be [1, 2, 3, 6, 9, 8, 7, 4, 5]. Input Matrix = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}}, k = 7. Output = 16.
+<details>
+<summary>Day 9: Finding the Kth element of a matrix in spiral form</summary>
+
+### Problem Statement:
+
+Given an MxN matrix where M is the number of rows and N is the number of columns and an integer K (<M\*N), print the Kth element of the matrix in spiral form. For a matrix [[1, 2, 3], [4, 5, 6], [7, 8, 9]] its spiral form will be [1, 2, 3, 6, 9, 8, 7, 4, 5]. Input Matrix = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}}, k = 7. Output = 16.
+
+### Solution Code:
 
 ```Python
 def find_spiral(matrix: [[int]], k: int) -> int:
@@ -473,9 +535,16 @@ k = 7
 print(find_spiral(matrix, k))
 ```
 
-### Day 10
+</details>
+
+<details>
+<summary>Day 10: Calculating the number of possible binary trees that can be formed from an inorder traversal array</summary>
+
+### Problem Statement:
 
 Given an array that represents inorder traversal, find the number of possibly binary trees. Input: arr=[4, 5, 7]. Output: 5
+
+### Solution Code:
 
 ```Python
 # Find no. of binary trees using catalan algorithm
@@ -498,9 +567,16 @@ arr = [4, 5, 7]
 print(num_trees(len(arr)))
 ```
 
-### Day 11
+</details>
+
+<details>
+<summary>Day 11: Converting a sorted linked list into a binary search tree and displaying its preorder traversal</summary>
+
+### Problem Statement:
 
 Given a sorted linked list, convert it into a binary search tree and display its preorder traversal (root-left-right). Input: Linkedlist = 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> null. Output: {4, 2, 1, 3, 6, 5, 7}.
+
+### Solution Code:
 
 ```Python
 # Define data structure
@@ -575,9 +651,16 @@ pot_arr = preorder_traversal(bst)
 print(pot_arr)
 ```
 
-### Day 12
+</details>
+
+<details>
+<summary>Day 12: Merging K sorted arrays using a MinHeap to print the sorted output</summary>
+
+### Problem Statement:
 
 Given K sorted array each of length N (in the form of a 2D array), merge them and print the sorted output using a MinHeap. Input: K = 3, N = 4, arr = {{1,3,5,7}, {2,4,6,7}, {0,9,10,11}}. Output: 0 1 2 3 4 5 6 7 8 9 10 11
+
+### Solution Code:
 
 ```Python
 import heapq
@@ -609,9 +692,16 @@ output = merge_array(arr)
 print(output)
 ```
 
-### Day 13
+</details>
+
+<details>
+<summary>Day 13: Rearranging characters so no adjacent characters are the same in a string</summary>
+
+### Problem Statement:
 
 Given a string of lowercase letters, rearrange the character so that no adjacent character are the same. If not possible then return an empty string. Input: String = "aaabbc". Output: "abaca".
+
+### Solution Code:
 
 ```Python
 import heapq
@@ -647,9 +737,16 @@ s = "aaabbc"
 print(rearrange_chars(s))
 ```
 
-### Day 14
+</details>
+
+<details>
+<summary>Day 14: Encoding and decoding a string using Huffman coding</summary>
+
+### Problem Statement:
 
 Given a string, compress it using huffman coding and display its binary encoded representation and also decode and print the decoded string.
+
+### Solution Code:
 
 ```python
 import heapq
@@ -727,9 +824,16 @@ print("Encoded: ", encoded_data)
 print("Decoded: ", decoded_data)
 ```
 
-### Day 15
+</details>
+
+<details>
+<summary>Day 15: Detecting cycles in a directed graph and returning the cycle if present</summary>
+
+### Problem Statement:
 
 Given a directed graph, write a function that detects if there is a cycle in the graph. If the graph is cyclic, return the cycle, else return false. Input: Vertices = ['A', 'B', 'C', 'D'], Edges = [('A', 'B'), ('B', 'C'), ('C', 'A'), ('C', 'D')]. Output: ['A', 'B', 'C', 'A'].
+
+### Solution Code:
 
 ```Python
 def find_cycle(vertices, edges):
@@ -777,9 +881,16 @@ cycle = find_cycle(vertices, edges)
 print(cycle)
 ```
 
-### Day 16
+</details>
+
+<details>
+<summary>Day 16: Finding the shortest path in an unweighted graph from a starting node to a target node</summary>
+
+### Problem Statement:
 
 Given an unweighted graph, find the shortest path from a starting node to a target node. Input: Vertices: [A, B, C, D, E], Edges: [(A, B), (A, C), (B, D), (C, E), (D, E)], Start: A, Target: E. Output: [A, C, E].
+
+### Solution Code:
 
 ```Python
 from collections import deque
@@ -818,9 +929,16 @@ shortest_path = bfs_shortest_path(graph, start, target)
 print(shortest_path)
 ```
 
-### Day 17
+</details>
+
+<details>
+<summary>Day 17: Using Dijkstra's algorithm to find the shortest path and distance between two nodes in a weighted graph</summary>
+
+### Problem Statement:
 
 Given a weighted graph, use Dijikstra's Algorithm to find the shortest path and the distance between the given start and end nodes. Input: Graph = { 'A': {'B': 4, 'C': 1}, 'B': {'C': 2, 'D': 5}, 'C': {'D': 8, 'E': 10), 'D': {'E': 2}, 'Ε': {}}, Start = 'A', End = 'E'. Output: Shortest Path = ['A', 'C', 'D', 'E'], Distance = 11.
+
+### Solution Code:
 
 ```Python
 from sys import maxsize as INT_MAX
@@ -882,11 +1000,18 @@ start, end = 0, 4
 djkistra(graph, start, end)
 ```
 
-## Other problems (leetcode, gfg)
+</details>
 
-### Day 7
+## Other problems (Leetcode, GFG)
+
+<details>
+<summary>Day 7: 1021. Remove Outermost Parentheses</summary>
+
+### Problem Statement:
 
 [1021 Remove Outermost Parentheses](https://leetcode.com/problems/remove-outermost-parentheses/) - A valid parentheses string is either empty "", "(" + A + ")", or A + B, where A and B are valid parentheses strings, and + represents string concatenation. For example, "", "()", "(())()", and "(()(()))" are all valid parentheses strings. A valid parentheses string s is primitive if it is nonempty, and there does not exist a way to split it into s = A + B, with A and B nonempty valid parentheses strings. Given a valid parentheses string s, consider its primitive decomposition: s = P1 + P2 + ... + Pk, where Pi are primitive valid parentheses strings. Return s after removing the outermost parentheses of every primitive string in the primitive decomposition of s.
+
+### Solution Code:
 
 ```Python
 class Solution:
@@ -907,9 +1032,16 @@ class Solution:
         return ans
 ```
 
-### Day 12
+</details>
+
+<details>
+<summary>Day 12: 328. Odd Even Linked List</summary>
+
+### Problem Statement:
 
 [328 Odd Even Linked List](https://leetcode.com/problems/odd-even-linked-list/) - Given the head of a singly linked list, group all the nodes with odd indices together followed by the nodes with even indices, and return the reordered list. The first node is considered odd, and the second node is even, and so on. Note that the relative order inside both the even and odd groups should remain as it was in the input. You must solve the problem in O(1) extra space complexity and O(n) time complexity.
+
+### Solution Code:
 
 ```Python
 # Definition for singly-linked list.
@@ -945,7 +1077,16 @@ class Solution:
         return oddHead
 ```
 
+</details>
+
+<details>
+<summary>Day 12: 19. Remove Nth Node From End of List</summary>
+
+### Problem Statement:
+
 [19 Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) - Given the head of a linked list, remove the nth node from the end of the list and return its head.
+
+### Solution Code:
 
 ```Python
 # Definition for singly-linked list.
@@ -976,7 +1117,16 @@ class Solution:
         return head
 ```
 
+</details>
+
+<details>
+<summary>Day 12: 2095. Delete the Middle Node of a Linked List</summary>
+
+### Problem Statement:
+
 [2095 Delete the Middle Node of a Linked List](https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/) - You are given the head of a linked list. Delete the middle node, and return the head of the modified linked list. The middle node of a linked list of size n is the ⌊n / 2⌋th node from the start using 0-based indexing, where ⌊x⌋ denotes the largest integer less than or equal to x. For n = 1, 2, 3, 4, and 5, the middle nodes are 0, 1, 1, 2, and 2, respectively.
+
+### Solution Code:
 
 ```Python
 # Definition for singly-linked list.
@@ -1005,9 +1155,16 @@ class Solution:
         return head
 ```
 
-### Day 13
+</details>
+
+<details>
+<summary>Day 13: 148. Sort List</summary>
+
+### Problem Statement:
 
 [148 Sort List](https://leetcode.com/problems/sort-list/) - Given the head of a linked list, return the list after sorting it in ascending order.
+
+### Solution Code:
 
 ```Python
 class Solution:
@@ -1057,7 +1214,16 @@ class Solution:
         return Solution.merge_list(self, left, right)
 ```
 
+</details>
+
+<details>
+<summary>Day 13: Sort a linked list of 0s, 1s and 2s</summary>
+
+### Problem Statement:
+
 [Sort a linked list of 0s, 1s and 2s](https://www.geeksforgeeks.org/problems/given-a-linked-list-of-0s-1s-and-2s-sort-it/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=given-a-linked-list-of-0s-1s-and-2s-sort-it) - Given a linked list of N nodes where nodes can contain values 0s, 1s, and 2s only. The task is to segregate 0s, 1s, and 2s linked list such that all zeros segregate to head side, 2s at the end of the linked list, and 1s in the mid of 0s and 2s.
+
+### Solution Code:
 
 ```Python
 class Solution:
@@ -1078,7 +1244,16 @@ class Solution:
         return head
 ```
 
+</details>
+
+<details>
+<summary>Day 13: 160. Intersection of Two Linked Lists</summary>
+
+### Problem Statement:
+
 [160 Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/) - Given the heads of two singly linked-lists headA and headB, return the node at which the two lists intersect. If the two linked lists have no intersection at all, return null.
+
+### Solution Code:
 
 ```Python
 # Definition for singly-linked list.
@@ -1102,7 +1277,16 @@ class Solution:
         return None
 ```
 
+</details>
+
+<details>
+<summary>Day 13: Add 1 to a Linked List Number</summary>
+
+### Problem Statement:
+
 [Add 1 to a Linked List Number](https://www.geeksforgeeks.org/problems/add-1-to-a-number-represented-as-linked-list/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=add-1-to-a-number-represented-as-linked-list) - A number is represented in the Linked List such that each digit corresponds to a node in the linked list. You need to add 1 to it. Returns the head of the modified linked list. Note: The head represents the leftmost digit of the number.
+
+### Solution Code:
 
 ```Python
 class Solution:
@@ -1136,9 +1320,16 @@ class Solution:
         return Solution.reverseList(self,head)
 ```
 
-### Day 14
+</details>
+
+<details>
+<summary>Day 14: 2. Add Two Numbers</summary>
+
+### Problem Statement:
 
 [2 Add Two Numbers](https://leetcode.com/problems/add-two-numbers/) - You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list. You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+
+### Solution Code:
 
 ```Python
 # Definition for singly-linked list.
@@ -1206,9 +1397,16 @@ class Solution:
         return l3
 ```
 
-### Day 15
+</details>
+
+<details>
+<summary>Day 15: 25. Reverse Nodes in k-Group</summary>
+
+### Problem Statement:
 
 [25 Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/) - Given the head of a linked list, reverse the nodes of the list k at a time, and return the modified list. k is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of k then left-out nodes, in the end, should remain as it is. You may not alter the values in the list's nodes, only nodes themselves may be changed.
+
+### Solution Code:
 
 ```Python
 # Definition for singly-linked list.
@@ -1288,7 +1486,16 @@ class Solution:
         return permanent_head
 ```
 
+</details>
+
+<details>
+<summary>Day 15: Delete all occurrences of a given key in a doubly linked list</summary>
+
+### Problem Statement:
+
 [Delete all occurrences of a given key in a doubly linked list](https://www.geeksforgeeks.org/problems/delete-all-occurrences-of-a-given-key-in-a-doubly-linked-list/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=delete-all-occurrences-of-a-given-key-in-a-doubly-linked-list) - You are given the head_ref of a doubly Linked List and a Key. Your task is to delete all occurrences of the given key if it is present and return the new DLL.
+
+### Solution Code:
 
 ```Python
 #User function Template for python3
@@ -1316,7 +1523,16 @@ class Solution:
         # edit the linked list
 ```
 
+</details>
+
+<details>
+<summary>Day 15: Find pairs with given sum in doubly linked list</summary>
+
+### Problem Statement:
+
 [Find pairs with given sum in doubly linked list](https://www.geeksforgeeks.org/problems/find-pairs-with-given-sum-in-doubly-linked-list/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=find-pairs-with-given-sum-in-doubly-linked-list) - Given a sorted doubly linked list of positive distinct elements, the task is to find pairs in a doubly-linked list whose sum is equal to given value target.
+
+### Solution Code:
 
 ```Python
 from typing import Optional
@@ -1365,7 +1581,16 @@ class Solution:
         return ans
 ```
 
+</details>
+
+<details>
+<summary>Day 15: Remove duplicates from a sorted doubly linked list</summary>
+
+### Problem Statement:
+
 [Remove duplicates from a sorted doubly linked list](https://www.geeksforgeeks.org/problems/remove-duplicates-from-a-sorted-doubly-linked-list/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=remove-duplicates-from-a-sorted-doubly-linked-list) - Given a doubly linked list of n nodes sorted by values, the task is to remove duplicate nodes present in the linked list.
+
+### Solution Code:
 
 ```Python
 #Back-end complete function Template for Python 3
@@ -1394,9 +1619,16 @@ class Solution:
         return head
 ```
 
-### Day 17
+</details>
+
+<details>
+<summary>Day 17: 56. Merge Intervals</summary>
+
+### Problem Statement:
 
 [56 Merge Intervals](https://leetcode.com/problems/merge-intervals/) - Given an array of intervals where intervals[i] = [starti, endi], merge all overlapping intervals, and return an array of the non-overlapping intervals that cover all the intervals in the input.
+
+### Solution Code:
 
 ```C++
 class Solution {
@@ -1425,54 +1657,9 @@ public:
 };
 ```
 
+</details>
+<br>
+
 # Lessons
 
-### Day 1
-
-Introduction to arrays. Why to use arrays?
-
-Sorting algorithms:
-   - Bubble sort
-   - Selection sort
-   - Insertion sort
-
-### Day 2
-
-Advanced sorting algorithms:
-   - Merge sort
-   - Quick sort
-
-### Day 3
-
-Searching algorithms:
-   - Linear search
-   - Binary search
-
-### Day 4
-
-Greedy Algorithms:
-   - Activity Selection Problem
-   - Fractional Knapsack Problem
-   - Huffman Coding
-
-### Day 5
-
-Divide and Conquer:
-   - Divide
-   - Conquer
-   - Combine
-
-Key concepts:
-   - Merge sort
-   - Median finding
-   - Min and max finding
-
-### Day 6
-
-Linked List:
-   - Structure
-   - Advantages
-   - Types:
-      - Single
-      - Double
-      - Circular
+_Work in progress..._
