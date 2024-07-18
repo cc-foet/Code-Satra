@@ -2,15 +2,7 @@
 
 Author: [Aditya Vardhan Singh](https://github.com/aditya-vardhan-singh)
 
-Topic: Code Satra is a 2-3 week challange. Provided with a challenge problem everyday on different data structure topics, one needs to solve and push the solution in their desired language to Code Satra repo. Intended to introduce and enhance foundational skills in data structures, algorithms and version control systems.
-
-Languages used by me: `C/C++, Python, Java`
-
-Primary language used for this file: `Python`
-
-For solution in all languages used, go to directory: `/Code Satra Problems` and `/Other Problems`
-
-Note: I have tried to solve the problems in all different languages I am familiar with (to be up to date with different libraries in the languages I know), however, some solutions in some languages might be missing.
+Languages used: `C/C++, Python, Java`
 
 # Table of Contents
 
@@ -121,7 +113,7 @@ def bouquet(bloomDay, M, K):
         if sum < min_sum:
             min_sum = sum
             min_idx = i
-    
+
     return getMax(bloomDay, min_idx, min_idx + adj_flowers)
 
 M = 2
@@ -149,8 +141,8 @@ def check_change(bills):
         # check change
         change = i - 5
         # check and return change
-        if change == 15: 
-            if desk[1] > 0 and desk[0] > 0: 
+        if change == 15:
+            if desk[1] > 0 and desk[0] > 0:
                 desk[1] -= 1
                 desk[0] -= 1
             elif desk[0] > 3:
@@ -160,7 +152,7 @@ def check_change(bills):
         elif change == 5:
             if desk[0] > 0:
                 desk[0] -= 1
-            else: 
+            else:
                 return False
     return True
 
@@ -186,15 +178,15 @@ def find_position(arr1, arr2, k):
         else:
             arr3.append(arr2[j])
             j += 1
-    
+
     while i < n:
         arr3.append(arr1[i])
         i += 1
-    
+
     while j < m:
         arr3.append(arr2[j])
         j += 1
-    
+
     return arr3[k-1]
 
 
@@ -366,7 +358,7 @@ class LinkedList:
                 ptr.next = ptr.next.next
             else:
                 ptr = ptr.next
-  
+
 
 # create a new linked list
 llist = LinkedList()
@@ -499,7 +491,7 @@ def num_trees(n: int) -> int:
     for i in range(2, n + 1):
         for j in range(i):
             catalan[i] += catalan[j] * catalan[i-j-1]
-    
+
     return catalan[n]
 
 arr = [4, 5, 7]
@@ -546,14 +538,14 @@ def find_middle_of_list(head):
 def sorted_list_to_bst(head):
     if head is None:
         return None
-    
+
     mid = find_middle_of_list(head)
 
     node = TreeNode(mid.val)
-    
+
     if head == mid:
         return node
-    
+
     node.left = sorted_list_to_bst(head)
     node.right = sorted_list_to_bst(mid.next)
 
@@ -562,13 +554,13 @@ def sorted_list_to_bst(head):
 def preorder_traversal(root):
     if root is None:
         return []
-    
+
     return [root.val] + preorder_traversal(root.left) + preorder_traversal(root.right)
 
 def create_list(arr):
     if not arr:
         return None
-    
+
     head = ListNode(arr[0])
     current = head
     for value in arr[1:]:
@@ -585,7 +577,7 @@ print(pot_arr)
 
 ### Day 12
 
-Given K sorted array each of length N (in the form of a 2D array), merge them and print the sorted output using a MinHeap. Input: K = 3, N = 4, arr = {{1,3,5,7}, {2,4,6,7}, {0,9,10,11}}. Output: 0 1 2 3 4 5 6 7 8 9 10 11 
+Given K sorted array each of length N (in the form of a 2D array), merge them and print the sorted output using a MinHeap. Input: K = 3, N = 4, arr = {{1,3,5,7}, {2,4,6,7}, {0,9,10,11}}. Output: 0 1 2 3 4 5 6 7 8 9 10 11
 
 ```Python
 import heapq
@@ -593,22 +585,22 @@ import heapq
 def merge_array(arr):
     K = len(arr)
     N = len(arr[0])
-    
+
     min_heap = []
-    
+
     # Insert the first element of each array into the heap
     for i in range(K):
         heapq.heappush(min_heap, (arr[i][0], i, 0))
-    
+
     result = []
-    
+
     while min_heap:
         value, row, col = heapq.heappop(min_heap)
         result.append(value)
-        
+
         if col + 1 < N:
             heapq.heappush(min_heap, (arr[row][col + 1], row, col + 1))
-    
+
     return result
 
 arr = [[1, 3, 5, 7], [2, 4, 6, 8], [0, 9, 10, 11]]
@@ -643,9 +635,9 @@ def rearrange_chars(s):
 
         if prev_count < 0: # character left to be used
             heapq.heappush(heap, (prev_count, prev_char))
-        
+
         prev_count, prev_char = count + 1, char
-    
+
     ans = ''.join(ans_arr)
 
     return ans if len(ans_arr) == len(s) else ''
@@ -683,29 +675,29 @@ class HuffmanCoding:
     def build_huffman_tree(self):
         heap = [Node(char, freq) for char, freq in self.frequency.items()]
         heapq.heapify(heap)
-        
+
         while len(heap) > 1:
             left = heapq.heappop(heap)
             right = heapq.heappop(heap)
             merged = Node(None, left.freq + right.freq, left, right)
             heapq.heappush(heap, merged)
-        
+
         return heap[0]
 
     def generate_codes(self):
         codes = {}
-        
+
         def generate_codes_helper(node, current_code):
             if node is None:
                 return
-            
+
             if node.char is not None:
                 codes[node.char] = current_code
                 return
-            
+
             generate_codes_helper(node.left, current_code + "0")
             generate_codes_helper(node.right, current_code + "1")
-        
+
         generate_codes_helper(self.huffman_tree, "")
         return codes
 
@@ -718,11 +710,11 @@ class HuffmanCoding:
         node = self.huffman_tree
         for bit in encoded_data:
             node = node.left if bit == '0' else node.right
-            
+
             if node.char is not None:
                 decoded_data.append(node.char)
                 node = self.huffman_tree
-        
+
         return ''.join(decoded_data)
 
 data = "code satra"
@@ -826,6 +818,70 @@ shortest_path = bfs_shortest_path(graph, start, target)
 print(shortest_path)
 ```
 
+### Day 17
+
+Given a weighted graph, use Dijikstra's Algorithm to find the shortest path and the distance between the given start and end nodes. Input: Graph = { 'A': {'B': 4, 'C': 1}, 'B': {'C': 2, 'D': 5}, 'C': {'D': 8, 'E': 10), 'D': {'E': 2}, 'Ε': {}}, Start = 'A', End = 'E'. Output: Shortest Path = ['A', 'C', 'D', 'E'], Distance = 11.
+
+```Python
+from sys import maxsize as INT_MAX
+
+size = 5
+
+def minDistance(dist, sptSet):
+    min, min_idx = INT_MAX, 0
+    for v in range(size):
+        if sptSet[v] is False and dist[v] <= min:
+            min, min_idx = dist[v], v
+    return min_idx
+
+def printPath(parent, v):
+    if (parent[v] == -1): return
+
+    printPath(parent, parent[v])
+    print(f' %d' % v, end='')
+
+def printSolution(dist, parent, src):
+    print(f'Vertex\t\tDistance\t\tPath', end='')
+    for v in range(size):
+        if v != src:
+            print(f'\n%d->%d\t\t%d\t\t%d' %(src, v, dist[v], src), end='')
+            printPath(parent, v)
+    print()
+
+def djkistra(graph, src, end):
+    dist = [INT_MAX] * size
+    sptSet = [False] * size
+    parent = [-1] * size
+
+    dist[src] = 0
+
+    for count in range(0, size - 1):
+        u = minDistance(dist, sptSet)
+        sptSet[u] = True
+        for v in range(0, size):
+            if sptSet[v] is False and graph[u][v] and dist[u] != INT_MAX and (dist[u] + graph[u][v] < dist[v]):
+                dist[v] = dist[u] + graph[u][v]
+                parent[v] = u
+
+    printSolution(dist, parent, src)
+
+    print(f'\nShortest path from %d to %d' %(src, end))
+    print(src, end='')
+    printPath(parent, end)
+    print(f'\nDistance = %d' % dist[end])
+
+graph = [
+    [0, 4, 1, 0, 0],
+    [0, 0, 2, 5, 0],
+    [0, 0, 0, 8, 10],
+    [0, 0, 0, 0, 2],
+    [0, 0, 0, 0, 0]
+]
+
+start, end = 0, 4
+djkistra(graph, start, end)
+```
+
 ## Other problems (leetcode, gfg)
 
 ### Day 7
@@ -851,7 +907,7 @@ class Solution:
         return ans
 ```
 
-### Day 12 
+### Day 12
 
 [328 Odd Even Linked List](https://leetcode.com/problems/odd-even-linked-list/) - Given the head of a singly linked list, group all the nodes with odd indices together followed by the nodes with even indices, and return the reordered list. The first node is considered odd, and the second node is even, and so on. Note that the relative order inside both the even and odd groups should remain as it was in the input. You must solve the problem in O(1) extra space complexity and O(n) time complexity.
 
@@ -883,7 +939,7 @@ class Solution:
                 evenTemp.next = oddTemp.next
                 oddTemp.next = None
                 evenTemp = evenTemp.next
-        
+
         oddTemp.next = evenHead
 
         return oddHead
@@ -904,7 +960,7 @@ class Solution:
         while temp:
             size += 1
             temp = temp.next
-        
+
         m = size - n + 1
 
         if m == 1:
@@ -916,7 +972,7 @@ class Solution:
                 temp = temp.next
                 count -= 1
             temp.next = temp.next.next
-        
+
         return head
 ```
 
@@ -942,10 +998,10 @@ class Solution:
         while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
-        
+
         slow.val = slow.next.val
         slow.next = slow.next.next
-        
+
         return head
 ```
 
@@ -967,7 +1023,7 @@ class Solution:
                 temp.next = right
                 right = right.next
             temp = temp.next
-        
+
         if left:
             temp.next = left
         else:
@@ -978,20 +1034,20 @@ class Solution:
     def find_middle_of_list(self, head):
         if head is None or head.next is None:
             return head
-        
+
         slow = head
         fast = head.next
 
         while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
-        
+
         return slow
 
     def sortList(self, head: Optional[ListNode]) -> Optional[ListNode]:
         if head is None or head.next is None:
             return head
-        
+
         mid = Solution.find_middle_of_list(self, head)
         left = head
         right = mid.next
@@ -1054,13 +1110,13 @@ class Solution:
         if head is None or head.next is None:
             return head
         ptr = None
-        
+
         while head:
             temp = head.next
             head.next = ptr
             ptr = head
             head = temp
-        
+
         return ptr
     def addOne(self,head):
         #Returns new head of linked List.
@@ -1099,18 +1155,18 @@ class Solution:
         while t1 and t2:
             sum = t1.val + t2.val + carry
             if carry:
-                carry = 0 
+                carry = 0
             if sum > 9:
                 carry = 1
                 sum -= 10
-            
+
             t3.val = sum
-            
+
             t1 = t1.next
             t2 = t2.next
             t3.next = ListNode()
             t3 = t3.next
-        
+
         while t1:
             sum = t1.val + carry
             if carry:
@@ -1118,12 +1174,12 @@ class Solution:
             if sum > 9:
                 carry = 1
                 sum -= 10
-            
+
             t3.val = sum
             t1 = t1.next
             t3.next = ListNode()
             t3 = t3.next
-        
+
         while t2:
             sum = t2.val + carry
             if carry:
@@ -1131,22 +1187,22 @@ class Solution:
             if sum > 9:
                 carry = 1
                 sum -= 10
-            
+
             t3.val = sum
             t2 = t2.next
             t3.next = ListNode()
             t3 = t3.next
-        
+
         if carry:
             t3.val = 1
             carry = 0
-        
+
         t3 = l3
         while t3.next.next:
             t3 = t3.next
         if t3.next.val == 0:
             t3.next = None
-        
+
         return l3
 ```
 
@@ -1169,32 +1225,32 @@ class Solution:
             size += 1
             temp = temp.next
         return size
-    
+
     def reverseList(self, head):
         if head is None or head.next is None:
             return head
-        
+
         prev = None
         while head:
             temp = head.next
             head.next = prev
             prev = head
             head = temp
-        
+
         return prev
 
     def reverseKGroup(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
         # edge case
         if k == 1:
             return head
-        
+
         # set head of our final ans
         count = k - 1
         permanent_head = head
         while count:
             permanent_head = permanent_head.next
             count -= 1
-        
+
         # rev k nodes n times
         n = Solution.sizeof(self, head) // k        # 2
         prev_temp_back = None
@@ -1204,7 +1260,7 @@ class Solution:
                 temp_front = head
             else:
                 temp_front = prev_temp_back.next
-            
+
             temp_back = temp_front
             count = k - 1
             while count:
@@ -1216,7 +1272,7 @@ class Solution:
                 prev_temp_back.next = None
             next_temp_front = temp_back.next
             temp_back.next = None
-            
+
             # rev list from tf to tb
             temp_back = temp_front
             temp_front = Solution.reverseList(self, temp_front)
@@ -1228,7 +1284,7 @@ class Solution:
 
             prev_temp_back = temp_back
             n -= 1
-        
+
         return permanent_head
 ```
 
@@ -1287,16 +1343,16 @@ class Solution:
         ans = []
         if head.next is None:
             return ans
-        
+
         p1 = head
         p2 = head
-        
+
         while p2.next:
             p2 = p2.next
-        
+
         while p1 is not p2 and p2.next is not p1:
             d1, d2 = p1.data, p2.data
-            
+
             if (d1 + d2) == target:
                 ans.append([d1, d2])
                 p1 = p1.next
@@ -1305,7 +1361,7 @@ class Solution:
                 p1 = p1.next
             else:
                 p2 = p2.prev
-        
+
         return ans
 ```
 
@@ -1328,15 +1384,45 @@ class Solution:
         # code here
         # return head after editing list
         temp = head
-        
+
         while temp.next:
             if temp.data == temp.next.data:
                 temp.next = temp.next.next
             else:
                 temp = temp.next
-        
+
         return head
-            
+```
+
+### Day 17
+
+[56 Merge Intervals](https://leetcode.com/problems/merge-intervals/) - Given an array of intervals where intervals[i] = [starti, endi], merge all overlapping intervals, and return an array of the non-overlapping intervals that cover all the intervals in the input.
+
+```C++
+class Solution {
+public:
+    vector<vector<int>> merge(vector<vector<int>>& intervals) {
+        sort(intervals.begin(), intervals.end());
+
+        vector<vector<int>> ans;
+        int start = intervals[0][0];
+        int end = intervals[0][1];
+
+        for (int i = 0; i < intervals.size(); i++) {
+            if (end >= intervals[i][0]) {
+                end = max(end, intervals[i][1]);
+            } else {
+                ans.push_back({start, end});
+                start = intervals[i][0];
+                end = intervals[i][1];
+            }
+        }
+
+        ans.push_back({start, end});
+
+        return ans;
+    }
+};
 ```
 
 # Lessons
