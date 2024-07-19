@@ -1002,6 +1002,44 @@ djkistra(graph, start, end)
 
 </details>
 
+<details>
+<summary>Day 18: Floyd Warshall Algorithm</summary>
+
+### Problem Statement:
+
+Given a weighted graph, write a function to find the shortest paths between all pairs of nodes using Floyd-Warshall Algorithm. Input: Graph = {{0, 4, INF, 5, INF }, {INF, 0, 1, INF, 6), {2, INF, 0, 3, INF), {INF, INF, 1, 0, 2), {1, INF, INF, 4,0}}; Output: {{0, 4, 5, 5, 7), {3, 0, 1, 4, 6), {2, 6, 0, 3, 5), {3, 1, 7, 0, 2), {1, 5, 5, 4,0)}
+
+### Solution Code:
+
+```Python
+def floyd_warshall(graph):
+    n = len(graph)
+    dist = [row[:] for row in graph]
+
+    for k in range(n):
+        for i in range(n):
+            for j in range(n):
+                if dist[i][k] != float('inf') and dist[k][j] != float('inf') and dist[i][k] + dist[k][j] < dist[i][j]:
+                    dist[i][j] = dist[i][k] + dist[k][j]
+
+    return dist
+
+graph = [
+    [0, 4, float('inf'), 5, float('inf')],
+    [float('inf'), 0, 1, float('inf'), 6],
+    [2, float('inf'), 0, 3, float('inf')],
+    [float('inf'), float('inf'), 1, 0, 2],
+    [1, float('inf'), float('inf'), 4, 0]
+]
+
+result = floyd_warshall(graph)
+
+for row in result:
+    print(row)
+```
+
+</details>
+
 ## Other problems (Leetcode, GFG)
 
 <details>
