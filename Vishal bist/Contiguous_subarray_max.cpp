@@ -1,4 +1,4 @@
-/*Program to find the contiguous sub-array(containing at least one number) that has the maximum sum and return its sum.
+/*Program to find the contiguous sub-array(containing at least one number) that has the maximum sum.
  The expected time complexity: O(n)*/
 
 #include<iostream>
