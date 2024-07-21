@@ -1084,6 +1084,55 @@ print(shortest_paths)
 
 </details>
 
+<details>
+<summary>Day 20: Minimum time to paint boards</summary>
+
+### Problem Statement:
+
+Given are N boards with length of each given in the form of array, and K painters, such that each painter takes 1 unit of time to paint 1 unit of the board. The task is to find the minimum time to paint all boards under the constraints that any painter will only paint continuous sections of boards.
+Input: n=4 arr = (10, 20, 30, 40) k=2
+Output: 60
+
+### Solution Code:
+
+```Python
+def minTime(arr, n, k):
+  def checkTime(arr, n, k, max_time):
+    total_time = 0
+    painters = 1
+
+    for i in range(n):
+      total_time += arr[i]
+      if total_time > max_time:
+        total_time = arr[i]
+        painters += 1
+        if painters > k:
+          return False
+    return True
+
+  low = max(arr) # min time
+  high = sum(arr) # max time
+
+  while low < high:
+    mid = (low + high) // 2
+
+    if checkTime(arr, n, k, mid):
+      high = mid
+    else:
+      low = mid + 1
+
+  return low
+
+arr = [10, 20, 30, 40]
+n = 4
+k = 2
+
+min_time = minTime(arr, n, k)
+print(min_time)
+```
+
+</details>
+
 ## Other problems (Leetcode, GFG)
 
 <details>
