@@ -1133,6 +1133,33 @@ print(min_time)
 
 </details>
 
+<details>
+<summary>Day 21: Minimum coins for target value using knapsack algorithm</summary>
+
+### Problem Statement:
+
+Given an array coins[] of size N and a target value V, where coins[i] represents the coins of different denominations. You have an infinite supply of each coin. The task is to find the minimum number of coins required to make the given value V. If it's not possible to make a change, print -1. Input: Coins = {9, 6, 5, 1}, V = 11. Output: 2.
+
+### Solution Code:
+
+```Python
+def minCoins(coins, V):
+    dp = [float('inf')] * (V+1)
+    dp[0] = 0
+
+    for i in range(1, V+1):
+        for coin in coins:
+            if coin <= i:
+                dp[i] = min(dp[i], dp[i - coin] + 1)
+    return dp[V] if dp[V] != float('inf') else -1
+
+coins = [9,6,5,1]
+V = 11
+print(minCoins(coins, V))
+```
+
+</details>
+
 ## Other problems (Leetcode, GFG)
 
 <details>
