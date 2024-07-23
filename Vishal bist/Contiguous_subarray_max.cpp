@@ -1,5 +1,6 @@
 /*Program to find the contiguous sub-array(containing at least one number) that has the maximum sum.
- The expected time complexity: O(n)*/
+ The expected time complexity: O(n)
+ */
 
 #include<iostream>
 #include<vector>
