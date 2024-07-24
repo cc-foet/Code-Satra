@@ -1,4 +1,5 @@
 /*
+Program to rotate a 2D array by 90 degree.
 */
 
 #include <iostream>
