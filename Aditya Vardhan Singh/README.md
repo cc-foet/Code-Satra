@@ -1258,6 +1258,98 @@ print(result)
 
 </details>
 
+<details>
+<summary>Day 24: Sudoku Solver</summary>
+
+### Problem Statement:
+
+Given an unsolved sudoku in the form of a 9x9 matrix, where empty cells are represented by 0, solve the sudoku and display the solution. Input:
+Sudoku = {{3,0,6,5,0,8,4,0,0},
+{5,2,0,0,0,0,0,0,0},
+{0,8,7,0,0,0,0,3,1},
+{0,0,3,0,1,0,0,8,0},
+{9,0,0,8,6,3,0,0,5},
+{0,5,0,0,9,0,6,0,0},
+{1,3,0,0,0,0,2,5,0},
+{0,0,0,0,0,0,0,7,4},
+{0,0,5,2,0,6,3,0,0}}.
+Output: {{3,1,6,5,7,8,4,9,2},
+{5,2,9,1,3,4,7,6,8},
+{4,8,7,6,2,9,5,3,1},
+{2,6,3,4,1,5,9,8,7},
+{9,7,4,8,6,3,1,2,5},
+{8,5,1,7,9,2,6,4,3},
+{1,3,8,9,4,7,2,5,6},
+{6,9,2,3,5,1,8,7,4},
+{7,4,5,2,8,6,3,1,9}}.
+
+### Solution Code:
+
+```Python
+def find_empty(sudoku, l):
+    for i in range(9):
+        for j in range(9):
+            if sudoku[i][j] == 0:
+                l[0] = i
+                l[1] = j
+                return True
+    return False
+
+def is_safe(sudoku, row, col, num):
+    # check in row and col
+    for i in range(9):
+        if sudoku[row][i] == num:
+            return False
+        if sudoku[i][col] == num:
+            return False
+
+    # check in box
+    start_row = row - row % 3
+    start_col = col - col % 3
+
+    for i in range(3):
+        for j in range(3):
+            if sudoku[i + start_row][j + start_col] == num:
+                return False
+
+    # found nowhere, therefore true
+    return True
+
+def sudoku_solve(sudoku):
+    l = [0, 0]
+    if not find_empty(sudoku, l):
+        return True
+
+    row = l[0]
+    col = l[1]
+
+    for num in range(1, 10):
+        if is_safe(sudoku, row, col, num):
+            sudoku[row][col] = num
+            if sudoku_solve(sudoku):
+                return True
+            sudoku[row][col] = 0
+
+    return False
+
+
+sudoku = [[3,0,6,5,0,8,4,0,0],
+[5,2,0,0,0,0,0,0,0],
+[0,8,7,0,0,0,0,3,1],
+[0,0,3,0,1,0,0,8,0],
+[9,0,0,8,6,3,0,0,5],
+[0,5,0,0,9,0,6,0,0],
+[1,3,0,0,0,0,2,5,0],
+[0,0,0,0,0,0,0,7,4],
+[0,0,5,2,0,6,3,0,0]]
+
+if sudoku_solve(sudoku):
+    for i in sudoku:
+        print(i)
+```
+
+</details>
+
 ## Other problems (Leetcode, GFG)
 
 <details>
