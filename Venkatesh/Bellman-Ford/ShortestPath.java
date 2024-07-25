@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Path {
+public class ShortestPath {
     public static Map<String, Integer> bellmanFord(Map<String, Map<String, Integer>> graph, String start) {
         Map<String, Integer> distances = new HashMap<>();
         Map<String, String> predecessors = new HashMap<>();
