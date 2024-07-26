@@ -1,0 +1,70 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX 100
+
+int adj[MAX][MAX];
+int in_degree[MAX];
+int queue[MAX];
+int front = -1, rear = -1;
+
+void enqueue(int v) {
+    if (rear == MAX - 1) return;
+    if (front == -1) front = 0;
+    queue[++rear] = v;
+}
+
+int dequeue() {
+    if (front == -1) return -1;
+    int v = queue[front];
+    if (front >= rear) front = rear = -1;
+    else front++;
+    return v;
+}
+
+void topologicalSort(int N) {
+    int result[MAX], idx = 0;
+    
+    for (int i = 0; i < N; i++) {
+        if (in_degree[i] == 0) enqueue(i);
+    }
+    
+    while (front != -1) {
+        int u = dequeue();
+        result[idx++] = u;
+        
+        for (int v = 0; v < N; v++) {
+            if (adj[u][v]) {
+                in_degree[v]--;
+                if (in_degree[v] == 0) enqueue(v);
+            }
+        }
+    }
+    
+    if (idx != N) {
+        printf("Cycle detected, topological sorting not possible\n");
+        return;
+    }
+    
+    for (int i = 0; i < idx; i++) {
+        printf("%d ", result[i]);
+    }
+    printf("\n");
+}
+
+int main() {
+    int N = 6;
+    int dependencies[][2] = {{5, 2}, {5, 0}, {4, 0}, {4, 1}, {2, 3}, {3, 1}};
+    int len = sizeof(dependencies) / sizeof(dependencies[0]);
+    
+    for (int i = 0; i < len; i++) {
+        int u = dependencies[i][0];
+        int v = dependencies[i][1];
+        adj[u][v] = 1;
+        in_degree[v]++;
+    }
+    
+    topologicalSort(N);
+    
+    return 0;
+}
