@@ -1350,6 +1350,55 @@ if sudoku_solve(sudoku):
 
 </details>
 
+<details>
+<summary>Day 25: Task completion dependencies using Topological Sorting</summary>
+
+### Problem Statement:
+
+Given number of tasks N and an array of dependencies as pairs (a, b) where task a must be completed before task b, find a sequence to complete all tasks. Input: N = 6, Dependencies = [(5,2),(5,0),(4,0),(4,1),(2,3),(3,1)]. Output: [5,4,2,3,1,0].
+
+### Solution Code:
+
+``` Python
+from collections import deque, defaultdict
+
+def find_task_order(N, dependencies):
+    # Represent the graph
+    graph = defaultdict(list)
+    in_degree = [0] * N
+
+    # Fill graph and in-degree array
+    for a, b in dependencies:
+        graph[a].append(b)
+        in_degree[b] += 1
+
+    # Init a queue with all tasks that have an in-degree of zero
+    queue = deque([i for i in range(N) if in_degree[i] == 0])
+    result = []
+
+    # Process the queue
+    while queue:
+        node = queue.popleft()
+        result.append(node)
+
+        for neighbor in graph[node]:
+            in_degree[neighbor] -= 1
+            if in_degree[neighbor] == 0:
+                queue.append(neighbor)
+
+    # Check if topological sort is possible
+    if len(result) == N:
+        return result
+    else:
+        return []
+
+N = 6
+dependencies = [(5, 2), (5, 0), (4, 0), (4, 1), (2, 3), (3, 1)]
+print(find_task_order(N, dependencies))
+```
+
+</details>
+
 ## Other problems (Leetcode, GFG)
 
 <details>
