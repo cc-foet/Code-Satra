@@ -1161,7 +1161,7 @@ print(minCoins(coins, V))
 </details>
 
 <details>
-<summary>Day 22: </summary>
+<summary>Day 22:Longest Common Subsequence</summary>
 
 ### Problem Statement:
 
@@ -1359,7 +1359,7 @@ Given number of tasks N and an array of dependencies as pairs (a, b) where task 
 
 ### Solution Code:
 
-``` Python
+```Python
 from collections import deque, defaultdict
 
 def find_task_order(N, dependencies):
@@ -1395,6 +1395,62 @@ def find_task_order(N, dependencies):
 N = 6
 dependencies = [(5, 2), (5, 0), (4, 0), (4, 1), (2, 3), (3, 1)]
 print(find_task_order(N, dependencies))
+```
+
+</details>
+
+<details>
+<summary>Day 26: Find Union (Disjonit Set Union)</summary>
+
+### Problem Statement:
+
+Given a network of N computers, in the form of (a, b) pairs where the pair represents a connection between computers a and b, perform a series of union and find operations to manage network connectivity and determine if two computers are in the same network. Input: N = 5, Connections = [(0,2),(4,2),(3,1)], Query = (4,0). Output: True.
+
+### Solution Code:
+
+```Python
+class FindUnion:
+    def __init__(self, size: int):
+        self.parent = list(range(size))
+        self.rank = [1] * size
+
+    def find(self, x: int) -> int:
+        if self.parent[x] != x:
+            self.parent[x] = self.find(self.parent[x])
+        return self.parent[x]
+
+    def union(self, a: int, b: int) -> None:
+        rootX = self.find(a)
+        rootY = self.find(b)
+
+        if rootX != rootY:
+            if self.rank[rootX] > self.rank[rootY]:
+                self.parent[rootY] = rootX
+            elif self.rank[rootX] < self.rank[rootY]:
+                self.parent[rootX] = rootY
+            else:
+                self.parent[rootY] = rootX
+                self.rank[rootX] += 1
+
+
+def main(N, connections, query):
+    fu = FindUnion(N)
+
+    # Make connections
+    for a, b in connections:
+        fu.union(a, b)
+
+    # Check query
+    x, y = query
+    return fu.find(x) == fu.find(y)
+
+
+# Example usage
+
+N = 5
+connections = [(0, 2), (4, 2), (3, 1)]
+query = (4, 0)
+print(main(N, connections, query))
 ```
 
 </details>
@@ -2058,5 +2114,50 @@ public:
 <br>
 
 # Lessons
+
+<details>
+<summary>Array</summary>
+
+### Array
+
+An array is a collection of elements, each identified by an index or key. Arrays can store integers, characters, strings, and more!.
+
+### Why Use Arrays?
+
+**Efficient Storage:** Arrays provide an efficient way to store multiple values of the same type. This helps in managing and organizing data effectively.
+
+**Easy Access to Elements:** Accessing elements in an array is straightforward and fast. Retrieve any value directly by its position using a unique index.
+
+**Ideal for Iteration and Manipulation:** Perfect for iterating through elements and performing bulk operations. Arrays provide a simple way to handle large datasets efficiently.
+
+### Sorting Algorithms
+
+1. Bubble Sort
+
+   1. Description: Repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. The pass through the list is repeated until the list is sorted.
+   2. Time Complexity: O(n^2)
+   3. Space Complexity: 0(1)
+
+2. Selection Sort
+
+   1. Description: Divides the list into two parts: the sorted part at the left end and the unsorted part at the right end. Repeatedly selects the smallest (or largest, depending on sorting order) element from the unsorted part and swaps it with the leftmost unsorted element, moving the boundary between sorted and unsorted parts one element to the right
+   2. Time Complexity: O(n^2)
+   3. Space Complexity: O(1)
+
+3. Insertion Sort
+
+   1. Description: Builds the final sorted array one item at a time. It is much less efficient on large lists than more advanced algorithms such as quicksort, heapsort, or merge sort.
+   2. Time Complexity: O(n^2)
+   3. Space Complexity: O(1)
+
+</details>
+
+<!-- <details>
+<summary></summary>
+</details>
+
+<details>
+<summary></summary>
+</details> -->
 
 _Work in progress..._
