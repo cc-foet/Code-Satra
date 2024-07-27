@@ -1161,7 +1161,7 @@ print(minCoins(coins, V))
 </details>
 
 <details>
-<summary>Day 22: </summary>
+<summary>Day 22:Longest Common Subsequence</summary>
 
 ### Problem Statement:
 
@@ -2118,11 +2118,11 @@ public:
 <details>
 <summary>Array</summary>
 
-#### Array
+### Array
 
 An array is a collection of elements, each identified by an index or key. Arrays can store integers, characters, strings, and more!.
 
-#### Why Use Arrays?
+### Why Use Arrays?
 
 **Efficient Storage:** Arrays provide an efficient way to store multiple values of the same type. This helps in managing and organizing data effectively.
 
@@ -2130,7 +2130,7 @@ An array is a collection of elements, each identified by an index or key. Arrays
 
 **Ideal for Iteration and Manipulation:** Perfect for iterating through elements and performing bulk operations. Arrays provide a simple way to handle large datasets efficiently.
 
-#### Sorting Algorithms
+### Sorting Algorithms
 
 1. Bubble Sort
 
@@ -2151,5 +2151,13 @@ An array is a collection of elements, each identified by an index or key. Arrays
    3. Space Complexity: O(1)
 
 </details>
+
+<!-- <details>
+<summary></summary>
+</details>
+
+<details>
+<summary></summary>
+</details> -->
 
 _Work in progress..._
