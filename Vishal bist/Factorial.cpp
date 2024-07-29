@@ -1,4 +1,4 @@
-/* Program to find factorial of a large number.*/
+/* Program to find factorial of a large number. */
 
 #include <iostream>
 #include <vector>
