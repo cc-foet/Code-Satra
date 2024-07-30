@@ -1,5 +1,5 @@
 /* Program to find the longest substring without repeating characters.
-   The given string [s] consists of English letters, digits, symbols and spaces. */
+   The given string [s] consists of English letters, digits, symbols and spaces.*/
 
 #include<iostream>
 #include<vector>
